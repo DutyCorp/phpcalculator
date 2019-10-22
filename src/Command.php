@@ -48,6 +48,18 @@ class Command extends SymfonyCommand
         }
         $output->writeln($result);
     }
+
+    protected function divide(InputInterface $input, OutputInterface $output)
+    {
+        $arr = $input->getArgument('numbers');
+
+        $result = $arr[0];
+
+        for ($i = 1; $i < sizeof($arr); $i++){
+        	$result /= $arr[$i];
+        }
+        $output->writeln($result);
+    }
 }
 
 ?>
