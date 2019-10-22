@@ -1,6 +1,6 @@
 <?php 
 
-namespace Console;
+namespace Calculator;
 
 use Symfony\Component\Console\Command\Command as SymfonyCommand;
 use Symfony\Component\Console\Input\InputArgument;
@@ -14,6 +14,17 @@ class Command extends SymfonyCommand
 {
     public function __construct(){
     	parent::__construct();
+    }
+
+    public function addToFile($commands, $strinput, $stroutput, $result){
+    	$filesystem = new Filesystem();
+        $file = 'historylog';
+        if (file_exists($file)){
+        	$str = ''.PHP_EOL.''.$commands.','.$strinput.','.$result.','.$stroutput.','.date('Y-m-d H:i:s').'';
+        } else {
+        	$str = ''.$commands.','.$strinput.','.$result.','.$stroutput.','.date('Y-m-d H:i:s').'';
+        }
+        $filesystem->appendToFile($file, $str);
     }
 
     protected function add(InputInterface $input, OutputInterface $output)
@@ -32,14 +43,7 @@ class Command extends SymfonyCommand
         $stroutput = $strinput;
         $stroutput .= ' = '.$result.'';
 
-        $filesystem = new Filesystem();
-        $file = 'historylog';
-        if (file_exists($file)){
-        	$str = ''.PHP_EOL.'Add,'.$strinput.','.$result.','.$stroutput.','.date('Y-m-d H:i:s').'';
-        } else {
-        	$str = 'Add,'.$strinput.','.$result.','.$stroutput.','.date('Y-m-d H:i:s').'';
-        }
-        $filesystem->appendToFile($file, $str);
+        $this->addToFile('Add', $strinput, $stroutput, $result);
 
         $output->writeln($result);
     }
@@ -58,14 +62,7 @@ class Command extends SymfonyCommand
         $stroutput = $strinput;
         $stroutput .= ' = '.$result.'';
 
-        $filesystem = new Filesystem();
-        $file = 'historylog';
-        if (file_exists($file)){
-        	$str = ''.PHP_EOL.'Subtract,'.$strinput.','.$result.','.$stroutput.','.date('Y-m-d H:i:s').'';
-        } else {
-        	$str = 'Subtract,'.$strinput.','.$result.','.$stroutput.','.date('Y-m-d H:i:s').'';
-        }
-        $filesystem->appendToFile($file, $str);
+        $this->addToFile('Subtract', $strinput, $stroutput, $result);
 
         $output->writeln($result);
     }
@@ -84,14 +81,7 @@ class Command extends SymfonyCommand
         $stroutput = $strinput;
         $stroutput .= ' = '.$result.'';
 
-        $filesystem = new Filesystem();
-        $file = 'historylog';
-        if (file_exists($file)){
-        	$str = ''.PHP_EOL.'Multiply,'.$strinput.','.$result.','.$stroutput.','.date('Y-m-d H:i:s').'';
-        } else {
-        	$str = 'Multiply,'.$strinput.','.$result.','.$stroutput.','.date('Y-m-d H:i:s').'';
-        }
-        $filesystem->appendToFile($file, $str);
+        $this->addToFile('Multiply', $strinput, $stroutput, $result);
 
         $output->writeln($result);
     }
@@ -110,14 +100,7 @@ class Command extends SymfonyCommand
         $stroutput = $strinput;
         $stroutput .= ' = '.$result.'';
 
-        $filesystem = new Filesystem();
-        $file = 'historylog';
-        if (file_exists($file)){
-        	$str = ''.PHP_EOL.'Divide,'.$strinput.','.$result.','.$stroutput.','.date('Y-m-d H:i:s').'';
-        } else {
-        	$str = 'Divide,'.$strinput.','.$result.','.$stroutput.','.date('Y-m-d H:i:s').'';
-        }
-        $filesystem->appendToFile($file, $str);
+        $this->addToFile('Divide', $strinput, $stroutput, $result);
 
         $output->writeln($result);
     }
@@ -129,14 +112,7 @@ class Command extends SymfonyCommand
         $stroutput = $strinput;
         $stroutput .= ' = '.$result.'';
 
-        $filesystem = new Filesystem();
-        $file = 'historylog';
-        if (file_exists($file)){
-        	$str = ''.PHP_EOL.'Pow,'.$strinput.','.$result.','.$stroutput.','.date('Y-m-d H:i:s').'';
-        } else {
-        	$str = 'Pow,'.$strinput.','.$result.','.$stroutput.','.date('Y-m-d H:i:s').'';
-        }
-        $filesystem->appendToFile($file, $str);
+        $this->addToFile('Pow', $strinput, $stroutput, $result);
 
         $output->writeln($result);
     }

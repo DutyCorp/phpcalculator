@@ -2,17 +2,17 @@
 <?php
 
 use Symfony\Component\Console\Application;
-use Console\AddCommand;
-use Console\SubtractCommand;
-use Console\MultiplyCommand;
-use Console\DivideCommand;
-use Console\PowCommand;
-use Console\HistoryListCommand;
-use Console\HistoryClearCommand;
+use Calculator\AddCommand;
+use Calculator\SubtractCommand;
+use Calculator\MultiplyCommand;
+use Calculator\DivideCommand;
+use Calculator\PowCommand;
+use Calculator\HistoryListCommand;
+use Calculator\HistoryClearCommand;
 
 require_once __DIR__.'/vendor/autoload.php';
 
-$app = new Application('Calculator', '0.5');
+$app = new Application('Calculator', '0.6');
 
 $app->add(new AddCommand());
 $app->add(new SubtractCommand());
