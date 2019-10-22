@@ -7,6 +7,8 @@ use Console\SubtractCommand;
 use Console\MultiplyCommand;
 use Console\DivideCommand;
 use Console\PowCommand;
+use Console\HistoryListCommand;
+use Console\HistoryClearCommand;
 
 require_once __DIR__.'/vendor/autoload.php';
 
@@ -17,5 +19,7 @@ $app->add(new SubtractCommand());
 $app->add(new MultiplyCommand());
 $app->add(new DivideCommand());
 $app->add(new PowCommand());
+$app->add(new HistoryListCommand());
+$app->add(new HistoryClearCommand());
 
 $app->run();
