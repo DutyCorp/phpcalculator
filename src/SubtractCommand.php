@@ -13,7 +13,7 @@ class SubtractCommand extends Command
     public function configure()
     {
         $this->setName('subtract')
-        	->setDescription('Subtract the numbers')
+        	->setDescription('Subtract all given Numbers')
         	->setHelp('This command allows you to subtract some numbers')
         	->addArgument('numbers', InputArgument::IS_ARRAY, 'numbers to be subtracted');
     }

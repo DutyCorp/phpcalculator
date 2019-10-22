@@ -28,12 +28,23 @@ class Command extends SymfonyCommand
     protected function subtract(InputInterface $input, OutputInterface $output)
     {
         $arr = $input->getArgument('numbers');
-        $result = 0;
 
         $result = $arr[0];
 
         for ($i = 1; $i < sizeof($arr); $i++){
         	$result -= $arr[$i];
+        }
+        $output->writeln($result);
+    }
+
+    protected function multiply(InputInterface $input, OutputInterface $output)
+    {
+        $arr = $input->getArgument('numbers');
+
+        $result = $arr[0];
+
+        for ($i = 1; $i < sizeof($arr); $i++){
+        	$result *= $arr[$i];
         }
         $output->writeln($result);
     }
