@@ -13,7 +13,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Jakmall\\Recruitment\\Calculator\\": "src/"
+            "Console\\": "src/"
         }
     },
     "config": {
