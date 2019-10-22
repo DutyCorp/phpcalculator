@@ -60,6 +60,13 @@ class Command extends SymfonyCommand
         }
         $output->writeln($result);
     }
+
+    protected function pow(InputInterface $input, OutputInterface $output)
+    {
+        $result = pow($input->getArgument('base'), $input->getArgument('exp'));
+
+        $output->writeln($result);
+    }
 }
 
 ?>
