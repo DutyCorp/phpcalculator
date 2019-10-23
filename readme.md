@@ -1,13 +1,15 @@
-# Jakmall Calculator
+# MesinHitung.id Calculator
 
 ## Software Requirements
 - Docker
 
 ## Vendor installation
+Type this to terminal : 
 ```
 ./composer install
 ```
-## Run the Calculator
+## How to run the Calculator
+Type this to terminal : 
 ```
 ./calculator
 ```
